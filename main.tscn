@@ -13,3 +13,4 @@ position = Vector2(274, 474)
 
 [node name="Door" parent="." instance=ExtResource("3_1cnya")]
 position = Vector2(1064, 608)
+next_level = "res://main.tscn"

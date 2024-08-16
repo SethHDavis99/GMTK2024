@@ -11,6 +11,7 @@ var can_control = true
 var nearby_parent = null
 
 func _ready() -> void:
+	Global.players[size] = self
 	scale = Vector2(size / MAX_SIZE, size / MAX_SIZE)
 
 func _physics_process(delta: float) -> void:
@@ -29,6 +30,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	
 	move_and_slide()
+	var collision = get_last_slide_collision()
+	if collision and collision.get_collider() is Player and collision.get_collider().size < size:
+		collision.get_collider().queue_free()
 
 func jump(overide_speed = -1):
 	var jump_speed = JUMP_VELOCITY
@@ -48,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			nearby_parent.can_control = true
 			queue_free()
 			get_viewport().set_input_as_handled()
-		elif size > 1:
+		elif size > 1 and !Global.players.has(size-1):
 			var inst = load("res://objects/player.tscn").instantiate()
 			inst.size = size-1
 			inst.global_position = global_position
@@ -58,6 +62,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("jump") and is_on_floor():
 		jump()
+
+func _exit_tree() -> void:
+	Global.players.erase(size)
 
 func _on_mouse_entered() -> void:
 	Global.hovered_player = self

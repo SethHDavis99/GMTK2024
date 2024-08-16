@@ -1,11 +1,12 @@
 extends Area2D
 
+@export var required_size := 1
+@export_file("*.tscn") var next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$ColorRect/Label.text = str(required_size)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player and body.size == required_size:
+		get_tree().call_deferred("change_scene_to_file",next_level)
