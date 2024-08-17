@@ -1,39 +1,18 @@
-[gd_scene load_steps=7 format=4 uid="uid://bpktfby28slji"]
+[gd_scene load_steps=4 format=4 uid="uid://bpktfby28slji"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_a7wgb"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_1qv2p"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="3_vdea0"]
-[ext_resource type="PackedScene" uid="uid://qxeggp7467i" path="res://objects/movingplatform.tscn" id="4_qkhyu"]
-[ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="5_chhde"]
-[ext_resource type="PackedScene" uid="uid://bnqmv4kmkmpvn" path="res://objects/door.tscn" id="6_qkl64"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAAHABMAAAAAAAAAAAA=")
 tile_set = ExtResource("1_a7wgb")
 
 [node name="Player" parent="." instance=ExtResource("2_1qv2p")]
-position = Vector2(18, 481)
+position = Vector2(46, 480)
 size = 2.0
 
 [node name="Door" parent="." instance=ExtResource("3_vdea0")]
 position = Vector2(1064, 608)
+required_size = 2
 next_level = "res://main.tscn"
-
-[node name="MovingPlatform" parent="." instance=ExtResource("4_qkhyu")]
-position = Vector2(158, 510)
-rotation = 3.14159
-travel_length = 64.0
-travel_time = 1.0
-is_horizontal = false
-
-[node name="MovingPlatform2" parent="." instance=ExtResource("4_qkhyu")]
-position = Vector2(158, 473)
-travel_length = 64.0
-is_horizontal = false
-
-[node name="Button" parent="." instance=ExtResource("5_chhde")]
-position = Vector2(159, 607)
-linked_door = NodePath("../Door2")
-
-[node name="Door2" parent="." instance=ExtResource("6_qkl64")]
-position = Vector2(396, 478)
