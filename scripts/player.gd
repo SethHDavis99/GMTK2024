@@ -89,6 +89,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and Global.hovered_player and !Global.hovered_player.playing_popin:
 		Global.selected_player = Global.hovered_player
 		can_control = Global.hovered_player == self
+		if Global.selected_player:
+			Global.play_sound(preload("res://audio/GMTK2024_UI_ButtonConfirm_01.ogg"),global_position)
 	
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()

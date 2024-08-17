@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1ko1dit44dsw"]
+[gd_scene load_steps=7 format=4 uid="uid://b1ko1dit44dsw"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_naaam"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_egygj"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="3_k4deu"]
-[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_4co2b"]
+[ext_resource type="PackedScene" path="res://objects/pully_platform.tscn" id="4_4co2b"]
+[ext_resource type="PackedScene" path="res://levels/Level7.tscn" id="4_hci8v"]
 [ext_resource type="PackedScene" uid="uid://qxeggp7467i" path="res://objects/movingplatform.tscn" id="4_jdshw"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
@@ -17,7 +18,7 @@ collision_mask = 1
 
 [node name="ExitDoor" parent="." instance=ExtResource("3_k4deu")]
 position = Vector2(1064, 352)
-next_level = "res://levels/main.tscn"
+next_level = ExtResource("4_hci8v")
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_4co2b")]
 offset_left = 185.0

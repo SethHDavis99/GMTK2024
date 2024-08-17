@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cqk2qe0l1lpvq" path="res://sprites/door_anim.tres" id="2_akn58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwkf2"]
-size = Vector2(22, 100)
+size = Vector2(95, 106)
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_ywdgb")
@@ -16,5 +16,5 @@ sprite_frames = ExtResource("2_akn58")
 animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -50)
+position = Vector2(0.5, -53)
 shape = SubResource("RectangleShape2D_gwkf2")
