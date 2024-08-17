@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c5mfw1nvtq4pw" path="res://audio/Music System/DollsInTheWoods_SmallLayerLP_01.ogg" id="3_0mhd0"]
 
 [node name="MusicSystem" type="Node"]
+process_mode = 3
 script = ExtResource("1_5c0ml")
 
 [node name="Base" type="AudioStreamPlayer" parent="."]
