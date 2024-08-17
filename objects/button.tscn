@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqto3r7w4jwo"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_ns8i1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xda2g"]
+size = Vector2(40, 10)
+
+[node name="Button" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ns8i1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_xda2g")
