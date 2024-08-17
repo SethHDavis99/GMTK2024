@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://do7ht6lootci2"]
+[gd_scene load_steps=7 format=4 uid="uid://fxo42fp6u7hl"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_5weqe"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_g4tmb"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="3_14wp1"]
-[ext_resource type="PackedScene" path="res://objects/pully_platform.tscn" id="4_2ygu6"]
+[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_2ygu6"]
 [ext_resource type="PackedScene" uid="uid://qxeggp7467i" path="res://objects/movingplatform.tscn" id="4_w3naw"]
 [ext_resource type="PackedScene" path="res://objects/button.tscn" id="5_vhkaf"]
 
@@ -13,7 +13,6 @@ tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAA
 tile_set = ExtResource("1_5weqe")
 
 [node name="Player" parent="." instance=ExtResource("2_g4tmb")]
-z_index = 0
 position = Vector2(580, 192)
 collision_layer = 1
 collision_mask = 1

@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b4auakld1aaig"]
+[gd_scene load_steps=6 format=4 uid="uid://cy16lveekw50p"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_naaam"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_egygj"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="3_k4deu"]
-[ext_resource type="PackedScene" path="res://objects/pully_platform.tscn" id="4_4co2b"]
+[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_4co2b"]
 [ext_resource type="PackedScene" uid="uid://qxeggp7467i" path="res://objects/movingplatform.tscn" id="4_jdshw"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
@@ -11,7 +11,6 @@ tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAA
 tile_set = ExtResource("1_naaam")
 
 [node name="Player" parent="." instance=ExtResource("2_egygj")]
-z_index = 0
 position = Vector2(60, 480)
 collision_layer = 1
 collision_mask = 1
