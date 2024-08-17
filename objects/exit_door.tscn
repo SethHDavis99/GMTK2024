@@ -35,15 +35,22 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(69, -92)
 shape = SubResource("RectangleShape2D_mtghr")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.5
-one_shot = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2, -237)
 shape = SubResource("RectangleShape2D_oc7ax")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

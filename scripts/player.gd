@@ -160,7 +160,7 @@ func get_weight():
 	return weight
 
 func _on_spawn_timer_timeout() -> void:
-	z_index = -int(size)
+	z_index = -int(size) + 100
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "R_OpenUp":
@@ -168,7 +168,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			can_control = true
 
 func on_tween_finished():
-	z_index = -99
+	z_index = 0
 	$PopinTimer.start()
 
 func _on_popin_timer_timeout() -> void:
