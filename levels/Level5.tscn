@@ -22,17 +22,9 @@ collision_mask = 1
 position = Vector2(1064, 288)
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_2ygu6")]
-offset_left = 280.0
-offset_top = 202.0
-offset_right = 300.0
-offset_bottom = 222.0
 linked_pully = NodePath("../PullyPlatform2")
 
 [node name="PullyPlatform2" parent="." instance=ExtResource("4_2ygu6")]
-offset_left = 461.0
-offset_top = 198.0
-offset_right = 481.0
-offset_bottom = 218.0
 linked_pully = NodePath("../PullyPlatform")
 
 [node name="Button" parent="." instance=ExtResource("5_vhkaf")]
