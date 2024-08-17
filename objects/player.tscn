@@ -3,15 +3,13 @@
 [ext_resource type="SpriteFrames" uid="uid://bstl8yolb5enr" path="res://sprites/player_anim.tres" id="1_01bsf"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aq5fj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iigf8"]
-radius = 32.0
-height = 174.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm2x2"]
+size = Vector2(92, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7241j"]
 size = Vector2(81, 183.375)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = -9
 collision_layer = 3
 collision_mask = 3
 input_pickable = true
@@ -20,13 +18,10 @@ script = ExtResource("1_aq5fj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -160)
 sprite_frames = ExtResource("1_01bsf")
-animation = &"R_OpenUp"
-frame = 8
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -89)
-shape = SubResource("CapsuleShape2D_iigf8")
+shape = SubResource("RectangleShape2D_sm2x2")
 one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -36,20 +31,8 @@ position = Vector2(0, -32)
 position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_7241j")
 
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="PopinTimer" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="PopinTimer" to="." method="_on_popin_timer_timeout"]
