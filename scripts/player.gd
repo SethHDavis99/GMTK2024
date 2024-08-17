@@ -1,13 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
-@export var size := 4.0
+@export var size := 3.0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = 200.0
 const JUMP_MOD = 75.0
 const MAX_SIZE = 4.0
-
 var can_control = true
 var nearby_parent = null
 var nearby_pully = null
@@ -27,13 +26,12 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			$AnimatedSprite2D.flip_h = direction > 0
-			$AnimatedSprite2D.play("R_Walk")
+			if is_on_floor():
+				$AnimatedSprite2D.play("R_Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			$AnimatedSprite2D.stop()
 	else:
 		velocity.x = 0
-		$AnimatedSprite2D.stop()
 	
 	move_and_slide()
 	
@@ -54,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		recent_pully.colliding_players.append(self)
 
 func jump(overide_speed = -1):
+	$AnimatedSprite2D.play("Jump")
 	var jump_speed = JUMP_VELOCITY + (JUMP_MOD * (MAX_SIZE - size))
 	if overide_speed > 0:
 		jump_speed = overide_speed
