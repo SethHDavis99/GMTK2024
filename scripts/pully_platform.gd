@@ -15,6 +15,9 @@ func _ready() -> void:
 	if linked_pully:
 		var inst = get_node(linked_pully)
 		inst.linked_pully = get_path()
+	else:
+		printerr("ERROR: Pully is not linked")
+		set_physics_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

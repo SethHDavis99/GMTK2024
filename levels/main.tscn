@@ -27,4 +27,3 @@ offset_left = 407.0
 offset_top = 187.0
 offset_right = 427.0
 offset_bottom = 207.0
-linked_pully = NodePath("../PullyPlatform")
