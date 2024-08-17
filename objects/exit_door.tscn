@@ -32,7 +32,7 @@ frame = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(42, -93)
+position = Vector2(69, -92)
 shape = SubResource("RectangleShape2D_mtghr")
 
 [node name="Timer" type="Timer" parent="."]

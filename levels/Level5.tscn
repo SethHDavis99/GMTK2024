@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dxvc2hps4ft5d"]
+[gd_scene load_steps=7 format=4 uid="uid://dxvc2hps4ft5d"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_5weqe"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_g4tmb"]
-[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="3_14wp1"]
 [ext_resource type="PackedScene" uid="uid://b1ko1dit44dsw" path="res://levels/Level6.tscn" id="4_0gymh"]
-[ext_resource type="PackedScene" path="res://objects/pully_platform.tscn" id="4_2ygu6"]
+[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_2ygu6"]
 [ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="5_vhkaf"]
-[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="7_122qn"]
+[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="7_122qn"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
 position = Vector2(-24, 3)
@@ -18,7 +17,7 @@ position = Vector2(580, 192)
 collision_layer = 1
 collision_mask = 1
 
-[node name="ExitDoor" parent="." instance=ExtResource("3_14wp1")]
+[node name="ExitDoor" parent="." instance=ExtResource("7_122qn")]
 position = Vector2(1064, 288)
 next_level = ExtResource("4_0gymh")
 
