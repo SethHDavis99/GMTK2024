@@ -1,7 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://bln200fogmp7n"]
+[gd_scene load_steps=15 format=3 uid="uid://bln200fogmp7n"]
 
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ywdgb"]
 [ext_resource type="Texture2D" uid="uid://5dly13jp542v" path="res://Art/Assets.png" id="2_o3exk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_krqt2"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_8l5sr"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.176539, 0.59698, 0.845528)
+colors = PackedColorArray(0.184799, 0.435213, 0.675856, 1, 0.763082, 0.345093, 5.77569e-07, 1, 0.904875, 0, 0.176557, 1, 0, 0.478823, 0.165989, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mcktq"]
+gradient = SubResource("Gradient_8l5sr")
+
+[sub_resource type="Curve" id="Curve_ong13"]
+_data = [Vector2(0, 0.938624), 0.0, 0.0, 0, 0, Vector2(0.0166482, 1), 0.0, 0.0, 0, 0, Vector2(0.291898, 0.00472128), 0.0, 0.0, 0, 0, Vector2(0.502775, 0.804262), 0.0, 0.0, 0, 0, Vector2(0.780244, 0.210412), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_krm6t"]
+curve = SubResource("Curve_ong13")
+
+[sub_resource type="Curve" id="Curve_vea5o"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0.0110988, 110.425), 0.0, 0.0, 0, 0, Vector2(1, 5.58888), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2502w"]
+curve = SubResource("Curve_vea5o")
+
+[sub_resource type="Curve" id="Curve_imqtd"]
+_data = [Vector2(0, 0.618477), 0.0, 0.0, 0, 0, Vector2(0.981132, 0.557101), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bpir6"]
+curve = SubResource("Curve_imqtd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ytaoo"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -100, 0)
+linear_accel_min = -10.45
+linear_accel_max = 9.62
+radial_accel_min = 0.509998
+radial_accel_max = 2.3
+radial_accel_curve = SubResource("CurveTexture_2502w")
+tangential_accel_min = -50.16
+tangential_accel_max = 64.99
+scale_min = 0.0
+scale_max = 23.77
+scale_curve = SubResource("CurveTexture_bpir6")
+color = Color(0.847355, 0.0750317, 1, 1)
+color_ramp = SubResource("GradientTexture1D_mcktq")
+emission_curve = SubResource("CurveTexture_krm6t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtghr"]
 size = Vector2(34, 184)
@@ -12,6 +67,16 @@ size = Vector2(96, 102)
 [node name="ExitDoor" type="Area2D"]
 process_mode = 3
 script = ExtResource("1_ywdgb")
+
+[node name="FinishLevel_Confetti" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FinishLevel_Confetti"]
+material = SubResource("CanvasItemMaterial_krqt2")
+position = Vector2(100, 0)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_ytaoo")
+explosiveness = 0.59
+randomness = 0.75
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -999
