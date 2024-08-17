@@ -11,6 +11,7 @@ var can_control = true
 var nearby_parent = null
 var nearby_pully = null
 var playing_popin = false
+var coyote_finished = false
 
 func _ready() -> void:
 	Global.selected_player = self
@@ -22,6 +23,11 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		if $CoyoteTime.is_stopped() and !coyote_finished:
+			$CoyoteTime.start()
+	elif velocity.y == 0:
+		coyote_finished = false
+		$CoyoteTime.stop()
 	
 	# Get the input direction and handle the movement/deceleration.
 	if can_control:
@@ -57,6 +63,7 @@ func _physics_process(delta: float) -> void:
 		recent_pully.colliding_players.append(self)
 
 func jump(overide_speed = -1):
+	coyote_finished = true
 	$AnimatedSprite2D.play("JumpUp")
 	var jump_speed = JUMP_VELOCITY
 	if overide_speed > 0:
@@ -89,6 +96,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			tween.finished.connect(on_tween_finished)
 			set_physics_process(false)
 			playing_popin = true
+			$AnimatedSprite2D.play("IDLE")
 		
 		elif size > 1 and !Global.players.has(size-1):
 			var inst = load("res://objects/player.tscn").instantiate()
@@ -100,7 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, MAX_SIZE / size)
 			$AnimatedSprite2D.play("R_OpenUp")
 	
-	if event.is_action_pressed("jump") and is_on_floor():
+	if event.is_action_pressed("jump") and can_jump():
 		jump()
 
 func _exit_tree() -> void:
@@ -147,3 +155,9 @@ func on_tween_finished():
 
 func _on_popin_timer_timeout() -> void:
 	queue_free()
+
+func can_jump():
+	return is_on_floor() or (!$CoyoteTime.is_stopped() and !coyote_finished)
+
+func _on_coyote_time_timeout() -> void:
+	coyote_finished = true
