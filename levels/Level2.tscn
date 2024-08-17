@@ -30,3 +30,12 @@ linked_door = NodePath("../Door3")
 
 [node name="Door3" parent="." instance=ExtResource("5_irs60")]
 position = Vector2(560, 355)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 73.0
+offset_right = 268.0
+offset_bottom = 96.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "TIP: Click on a doll to take control"
