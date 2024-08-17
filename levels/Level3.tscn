@@ -16,36 +16,16 @@ position = Vector2(72, 599)
 position = Vector2(1123, 612)
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_bim47")]
-offset_left = 246.0
-offset_top = 288.0
-offset_right = 266.0
-offset_bottom = 308.0
 linked_pully = NodePath("../PullyPlatform2")
 
 [node name="PullyPlatform2" parent="." instance=ExtResource("4_bim47")]
-offset_left = 112.0
-offset_top = 154.0
-offset_right = 132.0
-offset_bottom = 174.0
 linked_pully = NodePath("../PullyPlatform")
 
 [node name="PullyPlatform3" parent="." instance=ExtResource("4_bim47")]
-offset_left = 520.0
-offset_top = 295.0
-offset_right = 540.0
-offset_bottom = 315.0
 linked_pully = NodePath("../PullyPlatform4")
 
 [node name="PullyPlatform4" parent="." instance=ExtResource("4_bim47")]
-offset_left = 330.0
-offset_top = 19.0
-offset_right = 350.0
-offset_bottom = 39.0
 linked_pully = NodePath(".")
 
 [node name="PullyPlatform5" parent="." instance=ExtResource("4_bim47")]
-offset_left = 724.0
-offset_top = 79.0
-offset_right = 744.0
-offset_bottom = 99.0
 linked_pully = NodePath("../PullyPlatform3")
