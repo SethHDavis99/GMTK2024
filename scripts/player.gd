@@ -33,8 +33,9 @@ func _physics_process(delta: float) -> void:
 	elif velocity.y == 0:
 		if not landed:
 			footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
-			$FallingVFX/GPUParticles2D.emitting = true
-			$FallingVFX/GPUParticles2D2.emitting = true
+			#$FallingVFX/GPUParticles2D.emitting = true
+			#$FallingVFX/GPUParticles2D2.emitting = true
+			$AnimatedSprite2D.play("IDLE")
 		coyote_finished = false
 		$CoyoteTime.stop()
 		landed = true
@@ -61,8 +62,8 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision:
-			if collision.get_collider() is Player and collision.get_collider().size < size:
-				collision.get_collider().queue_free()
+			#if collision.get_collider() is Player and collision.get_collider().size < size:
+				#collision.get_collider().queue_free()
 			if collision.get_collider().get_parent() is PullyPlatform:
 				recent_pully = collision.get_collider().get_parent()
 	if !recent_pully and nearby_pully:

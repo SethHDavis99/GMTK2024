@@ -7,6 +7,7 @@ const MAX_SIZE = 3.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CanvasLayer.visible = true
 	scale = Vector2(required_size / MAX_SIZE, required_size / MAX_SIZE)
 	var tween = get_tree().create_tween()
 	tween.tween_property($CanvasLayer/ColorRect,"modulate",Color(1,1,1,0),1)

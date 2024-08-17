@@ -70,6 +70,7 @@ z_index = -99
 script = ExtResource("1_ywdgb")
 
 [node name="FinishLevel" type="Node2D" parent="."]
+visible = false
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="FinishLevel"]
 material = SubResource("CanvasItemMaterial_krqt2")
@@ -118,6 +119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
