@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bdjwr2nuywpq7" path="res://sprites/player.png" id="1_c1icr"]
 [ext_resource type="Texture2D" uid="uid://qyg70w8c7j7c" path="res://animation/Doll_Anim.png" id="1_j2gnj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sx2yy"]
-atlas = ExtResource("1_j2gnj")
-region = Rect2(0, 960, 320, 320)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_je710"]
 atlas = ExtResource("1_j2gnj")
 region = Rect2(320, 960, 320, 320)
@@ -38,6 +34,10 @@ region = Rect2(640, 1280, 320, 320)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7d1o"]
 atlas = ExtResource("1_j2gnj")
 region = Rect2(960, 1280, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx2yy"]
+atlas = ExtResource("1_j2gnj")
+region = Rect2(0, 960, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cer22"]
 atlas = ExtResource("1_j2gnj")
@@ -139,9 +139,6 @@ region = Rect2(1920, 0, 320, 320)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sx2yy")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_je710")
 }, {
 "duration": 1.0,
@@ -164,8 +161,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t7d1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx2yy")
 }],
-"loop": true,
+"loop": false,
 "name": &"IDLE",
 "speed": 12.0
 }, {

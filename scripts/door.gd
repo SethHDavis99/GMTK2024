@@ -10,4 +10,7 @@ func toggle_open(new_open):
 		open -= 1
 	
 	$CollisionShape2D.disabled = open > 0
-	$ColorRect.visible = open <= 0
+	if new_open and open == 1:
+		$AnimatedSprite2D.play("open")
+	elif !new_open and open == 0:
+		$AnimatedSprite2D.play_backwards("open")

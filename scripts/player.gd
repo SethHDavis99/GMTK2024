@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.play("R_Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			if is_on_floor() and velocity.y == 0:
+			if is_on_floor() and velocity.y == 0 and Global.selected_player == self:
 				$AnimatedSprite2D.play("IDLE")
 	else:
 		velocity.x = 0
