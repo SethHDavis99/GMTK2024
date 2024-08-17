@@ -20,9 +20,7 @@ script = ExtResource("1_aq5fj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -160)
 sprite_frames = ExtResource("1_01bsf")
-animation = &"R_OpenUp"
-frame = 8
-frame_progress = 1.0
+animation = &"IDLE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -89)
@@ -45,6 +43,10 @@ autostart = true
 wait_time = 0.3
 one_shot = true
 
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
@@ -53,3 +55,4 @@ one_shot = true
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="PopinTimer" to="." method="_on_popin_timer_timeout"]
+[connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]

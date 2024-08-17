@@ -11,10 +11,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not activated and has_overlapping_bodies():
-		$ColorRect.color = Color.GREEN
 		activated = true
 		get_node(linked_door).toggle_open(activated)
+		$AnimatedSprite2D.play("press")
 	if activated and !has_overlapping_bodies():
-		$ColorRect.color = Color.RED
 		activated = false
 		get_node(linked_door).toggle_open(activated)
+		$AnimatedSprite2D.play_backwards("press")

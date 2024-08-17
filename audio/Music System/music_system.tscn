@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://beyxfqo2rlmi3"]
+
+[ext_resource type="Script" path="res://audio/Music System/music_system.gd" id="1_5c0ml"]
+[ext_resource type="AudioStream" uid="uid://cct1tnm7fl4ce" path="res://audio/Music System/DollsInTheWoods_BaseLayerLP_01.ogg" id="1_up08i"]
+[ext_resource type="AudioStream" uid="uid://bjrah1rpsyx3w" path="res://audio/Music System/DollsInTheWoods_MidLayerLP_01.ogg" id="2_2q2ay"]
+[ext_resource type="AudioStream" uid="uid://c5mfw1nvtq4pw" path="res://audio/Music System/DollsInTheWoods_SmallLayerLP_01.ogg" id="3_0mhd0"]
+
+[node name="MusicSystem" type="Node"]
+script = ExtResource("1_5c0ml")
+
+[node name="Base" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_up08i")
+volume_db = -80.0
+autoplay = true
+
+[node name="Mid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2q2ay")
+volume_db = -80.0
+autoplay = true
+
+[node name="Small" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0mhd0")
+volume_db = -80.0
+autoplay = true

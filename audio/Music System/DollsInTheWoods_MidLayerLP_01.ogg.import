@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b451r2u6obsvd"
+uid="uid://bjrah1rpsyx3w"
 path="res://.godot/imported/DollsInTheWoods_MidLayerLP_01.ogg-614bd845d2c1f08f6bf52cb70273b7b6.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/DollsInTheWoods_MidLayerLP_01.ogg-614bd845d2c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

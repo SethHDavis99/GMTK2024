@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://emqvv8vaid6o"]
+
+[ext_resource type="Texture2D" uid="uid://qyg70w8c7j7c" path="res://animation/Doll_Anim.png" id="1_hirc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sarqx"]
+atlas = ExtResource("1_hirc6")
+region = Rect2(0, 1600, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kroog"]
+atlas = ExtResource("1_hirc6")
+region = Rect2(320, 1600, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhn6d"]
+atlas = ExtResource("1_hirc6")
+region = Rect2(640, 1600, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shgc4"]
+atlas = ExtResource("1_hirc6")
+region = Rect2(960, 1600, 320, 320)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sarqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kroog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhn6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shgc4")
+}],
+"loop": false,
+"name": &"press",
+"speed": 10.0
+}]

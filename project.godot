@@ -18,11 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
+MusicSystem="*res://audio/Music System/music_system.tscn"
 
 [display]
 
 window/size/mode=2
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="GMTK2024"
 
 [input]
 

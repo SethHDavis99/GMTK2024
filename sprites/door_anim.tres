@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cqk2qe0l1lpvq"]
+
+[ext_resource type="Texture2D" uid="uid://qyg70w8c7j7c" path="res://animation/Doll_Anim.png" id="1_h7t4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duefo"]
+atlas = ExtResource("1_h7t4u")
+region = Rect2(1280, 1600, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvl7u"]
+atlas = ExtResource("1_h7t4u")
+region = Rect2(1600, 1600, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl47s"]
+atlas = ExtResource("1_h7t4u")
+region = Rect2(1920, 1600, 320, 320)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duefo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvl7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl47s")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
