@@ -9,6 +9,7 @@ const MAX_SIZE = 4.0
 
 var can_control = true
 var nearby_parent = null
+var nearby_pully = null
 
 func _ready() -> void:
 	Global.players[size] = self
@@ -30,9 +31,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	
 	move_and_slide()
-	var collision = get_last_slide_collision()
-	if collision and collision.get_collider() is Player and collision.get_collider().size < size:
-		collision.get_collider().queue_free()
+	
+	# pully systemd
+	var recent_pully = null
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			if collision.get_collider() is Player and collision.get_collider().size < size:
+				collision.get_collider().queue_free()
+			if collision.get_collider().get_parent() is PullyPlatform:
+				recent_pully = collision.get_collider().get_parent()
+	if !recent_pully and nearby_pully:
+		nearby_pully.colliding_players.erase(self)
+		nearby_pully = null
+	elif recent_pully and !nearby_pully:
+		nearby_pully = recent_pully
+		recent_pully.colliding_players.append(self)
 
 func jump(overide_speed = -1):
 	var jump_speed = JUMP_VELOCITY
@@ -65,6 +79,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _exit_tree() -> void:
 	Global.players.erase(size)
+	if nearby_pully:
+		nearby_pully.colliding_players.erase(self)
 
 func _on_mouse_entered() -> void:
 	Global.hovered_player = self
@@ -80,3 +96,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player and body.size == size-1:
 		body.nearby_parent = null
+
+func get_weight():
+	var weight = size
+	for i in range(size-1,0,-1):
+		if not Global.players.has(float(i)):
+			weight += i
+		else:
+			break
+	return weight
