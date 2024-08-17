@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://1ujkod2vuoem"]
+[gd_scene load_steps=7 format=4 uid="uid://1ujkod2vuoem"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_y8ker"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_0d1f3"]
 [ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="4_ftj3q"]
+[ext_resource type="PackedScene" uid="uid://bqvmoo6kt327o" path="res://levels/Level3.tscn" id="4_jovba"]
 [ext_resource type="PackedScene" uid="uid://bnqmv4kmkmpvn" path="res://objects/door.tscn" id="5_irs60"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="5_kx024"]
 
@@ -17,7 +18,7 @@ size = 2.0
 [node name="ExitDoor" parent="." instance=ExtResource("5_kx024")]
 position = Vector2(1064, 608)
 required_size = 2
-next_level = "res://levels/Level3.tscn"
+next_level = ExtResource("4_jovba")
 
 [node name="Button" parent="." instance=ExtResource("4_ftj3q")]
 position = Vector2(719, 607)
