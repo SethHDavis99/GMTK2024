@@ -19,3 +19,4 @@ next_level = "res://main.tscn"
 
 [node name="MovingPlatform" parent="." instance=ExtResource("4_w3naw")]
 position = Vector2(449, 291)
+script = null
