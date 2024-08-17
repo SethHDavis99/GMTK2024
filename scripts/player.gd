@@ -58,6 +58,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and Global.hovered_player:
 		can_control = Global.hovered_player == self
 	
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+	
 	if !can_control:
 		return
 	
