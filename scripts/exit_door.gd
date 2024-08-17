@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and body.size == required_size:
-		$Particles2D.emitting = true
+		$FinishLevel/GPUParticles2D.emitting = true
 		if next_level:
 			Global.play_sound(preload("res://audio/GMTK2024_DollGoalReach_02.ogg"),global_position)
 			var tween = get_tree().create_tween()
