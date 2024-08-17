@@ -16,6 +16,7 @@ func _ready() -> void:
 	Global.selected_player = self
 	Global.players[size] = self
 	scale = Vector2(size / MAX_SIZE, size / MAX_SIZE)
+	MusicSystem.toggle_music(size,true)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -104,6 +105,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _exit_tree() -> void:
 	Global.players.erase(size)
+	MusicSystem.toggle_music(size,false)
 	if nearby_pully:
 		nearby_pully.colliding_players.erase(self)
 
