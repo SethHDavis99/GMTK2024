@@ -15,7 +15,7 @@ position = Vector2(81, 493)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Door" parent="." instance=ExtResource("3_k4deu")]
+[node name="ExitDoor" parent="." instance=ExtResource("3_k4deu")]
 position = Vector2(1064, 352)
 next_level = "res://levels/main.tscn"
 

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtghr"]
 size = Vector2(34, 52)
 
-[node name="Door" type="Area2D"]
+[node name="ExitDoor" type="Area2D"]
 script = ExtResource("1_ywdgb")
 
 [node name="ColorRect" type="ColorRect" parent="."]

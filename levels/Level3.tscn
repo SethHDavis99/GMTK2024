@@ -12,7 +12,7 @@ tile_set = ExtResource("1_e82y4")
 [node name="Player" parent="." instance=ExtResource("2_6xmy8")]
 position = Vector2(72, 599)
 
-[node name="Door" parent="." instance=ExtResource("3_rh7ei")]
+[node name="ExitDoor" parent="." instance=ExtResource("3_rh7ei")]
 position = Vector2(1119, 254)
 next_level = "res://levels/Level4.tscn"
 
