@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite2D
 class_name PullyPlatform
 
 @export_node_path("PullyPlatform") var linked_pully : NodePath
@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatableBody2D.position = new_pos
 	
 	#$Line2D.points[0] = size / 2
-	$Line2D.points[1] = $AnimatableBody2D.position
-	$Line2D2.points[1] = (get_node(linked_pully).global_position) - (global_position) + (size/2)
+	$Line2D.points[1] = $AnimatableBody2D.position - $Line2D.position
+	$Line2D2.points[1] = (get_node(linked_pully).global_position) - (global_position)
 
 func get_total_weight():
 	var total_weight = 0
