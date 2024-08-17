@@ -12,6 +12,8 @@ var nearby_parent = null
 var nearby_pully = null
 var playing_popin = false
 var coyote_finished = false
+var footstep = null
+var landed = false
 
 func _ready() -> void:
 	Global.selected_player = self
@@ -25,9 +27,15 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		if $CoyoteTime.is_stopped() and !coyote_finished:
 			$CoyoteTime.start()
+		if landed:
+			landed = false
+			$AnimatedSprite2D.play("JumpUp")
 	elif velocity.y == 0:
+		if not landed:
+			footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
 		coyote_finished = false
 		$CoyoteTime.stop()
+		landed = true
 	
 	# Get the input direction and handle the movement/deceleration.
 	if can_control:
@@ -61,6 +69,10 @@ func _physics_process(delta: float) -> void:
 	elif recent_pully and !nearby_pully:
 		nearby_pully = recent_pully
 		recent_pully.colliding_players.append(self)
+	
+	#walk sounds
+	if !is_instance_valid(footstep) and $AnimatedSprite2D.animation == "R_Walk" and $AnimatedSprite2D.frame == 5:
+		footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
 
 func jump(overide_speed = -1):
 	coyote_finished = true
@@ -89,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Global.selected_player = nearby_parent
 			nearby_parent.get_node("AnimatedSprite2D").play("R_OpenUp")
 			get_viewport().set_input_as_handled()
-			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, MAX_SIZE / size)
+			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, [MAX_SIZE / size,MAX_SIZE / size])
 			can_control = false
 			var tween = get_tree().create_tween()
 			tween.tween_property(self,"global_position",nearby_parent.global_position - Vector2(0,50 * nearby_parent.scale.x),0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -105,11 +117,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_parent().add_child(inst)
 			inst.jump(200)
 			can_control = false
-			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, MAX_SIZE / size)
+			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position,[MAX_SIZE / size,MAX_SIZE / size])
 			$AnimatedSprite2D.play("R_OpenUp")
 	
 	if event.is_action_pressed("jump") and can_jump():
+		Global.play_sound(preload("res://audio/GMTK2024_Jump_01.ogg"),global_position)
 		jump()
+	
+	if is_on_floor() and (event.is_action_released("move_left") or event.is_action_released("move_right")):
+		footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
 
 func _exit_tree() -> void:
 	Global.players.erase(size)
