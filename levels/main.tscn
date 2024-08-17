@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=4 uid="uid://comul7eu3xh4b"]
+[gd_scene load_steps=5 format=4 uid="uid://comul7eu3xh4b"]
 
-[ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_g81rw"]
-[ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_abs6a"]
-[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="3_1cnya"]
+[ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_uh1xk"]
+[ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_ns3bq"]
+[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="3_1m0dx"]
+[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_ij6r3"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAAQABEAAAAAAAAAAAAQABAAAAAAAAAAAAARABAAAAAAAAAAAAARABEAAAAAAAAAAAARABIAAAAAAAAAAAAQABIAAAAAAAAAAAA=")
-tile_set = ExtResource("1_g81rw")
+tile_set = ExtResource("1_uh1xk")
 
-[node name="Player" parent="." instance=ExtResource("2_abs6a")]
+[node name="Player" parent="." instance=ExtResource("2_ns3bq")]
 position = Vector2(274, 474)
 
-[node name="Door" parent="." instance=ExtResource("3_1cnya")]
+[node name="Door" parent="." instance=ExtResource("3_1m0dx")]
 position = Vector2(1064, 608)
 next_level = "res://main.tscn"
+
+[node name="PullyPlatform" parent="." instance=ExtResource("4_ij6r3")]
+offset_left = 650.0
+offset_top = 48.0
+offset_right = 670.0
+offset_bottom = 68.0
+linked_pully = NodePath("../PullyPlatform2")
+
+[node name="PullyPlatform2" parent="." instance=ExtResource("4_ij6r3")]
+offset_left = 407.0
+offset_top = 187.0
+offset_right = 427.0
+offset_bottom = 207.0
+linked_pully = NodePath("../PullyPlatform")
