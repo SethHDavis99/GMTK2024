@@ -25,6 +25,10 @@ MusicSystem="*res://audio/Music System/music_system.tscn"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="GMTK2024"
+
 [input]
 
 jump={
