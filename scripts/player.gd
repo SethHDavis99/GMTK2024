@@ -134,11 +134,11 @@ func _exit_tree() -> void:
 		nearby_pully.colliding_players.erase(self)
 
 func _on_mouse_entered() -> void:
-	Global.hovered_player = self
+	Global.set_hovered_player(self)
 
 func _on_mouse_exited() -> void:
 	if Global.hovered_player == self:
-		Global.hovered_player = null
+		Global.set_hovered_player(null)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and body.size == size-1:
