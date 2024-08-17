@@ -15,4 +15,3 @@ size = 2.0
 [node name="Door" parent="." instance=ExtResource("3_vdea0")]
 position = Vector2(1064, 608)
 required_size = 2
-next_level = "res://main.tscn"
