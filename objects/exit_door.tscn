@@ -1,40 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://bln200fogmp7n"]
+[gd_scene load_steps=5 format=3 uid="uid://bln200fogmp7n"]
 
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ywdgb"]
+[ext_resource type="Texture2D" uid="uid://5dly13jp542v" path="res://Art/Assets.png" id="2_o3exk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtghr"]
-size = Vector2(34, 52)
+size = Vector2(34, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc7ax"]
+size = Vector2(96, 102)
 
 [node name="ExitDoor" type="Area2D"]
 process_mode = 3
 script = ExtResource("1_ywdgb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -32.0
-offset_top = -64.0
-offset_right = 32.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -999
+position = Vector2(-80, -136)
+texture = ExtResource("2_o3exk")
+hframes = 16
+vframes = 8
+frame = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_right = 5.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "X"
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 999
+position = Vector2(80, -136)
+texture = ExtResource("2_o3exk")
+hframes = 16
+vframes = 8
+frame = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -26)
+position = Vector2(69, -92)
 shape = SubResource("RectangleShape2D_mtghr")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.5
 one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, -237)
+shape = SubResource("RectangleShape2D_oc7ax")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

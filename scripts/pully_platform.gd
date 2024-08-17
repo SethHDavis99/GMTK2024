@@ -8,6 +8,7 @@ const WEIGHT_DIFF = 10
 
 var colliding_players : Array[Player] = []
 var start_pos = Vector2.ZERO
+var pully_sound = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +33,12 @@ func _physics_process(delta: float) -> void:
 	#$Line2D.points[0] = size / 2
 	$Line2D.points[1] = $AnimatableBody2D.position - $Line2D.position
 	$Line2D2.points[1] = (get_node(linked_pully).global_position) - (global_position)
+	
+	if abs(move_dir) - 1 > 0 and !pully_sound:
+		pully_sound = Global.play_sound(preload("res://audio/GMTK2024_PullyLoop_01.ogg"),global_position)
+	elif abs(move_dir) - 1 < 0 and is_instance_valid(pully_sound):
+		pully_sound.queue_free()
+		pully_sound = null
 
 func get_total_weight():
 	var total_weight = 0

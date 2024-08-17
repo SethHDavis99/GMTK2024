@@ -14,7 +14,11 @@ func _process(delta: float) -> void:
 		activated = true
 		get_node(linked_door).toggle_open(activated)
 		$AnimatedSprite2D.play("press")
+		Global.play_sound(preload("res://audio/GMTK2024_ButtonPressDown_01.ogg"),global_position)
+		Global.play_sound(preload("res://audio/GMTK2024_DoorOpen_01.ogg"),global_position)
 	if activated and !has_overlapping_bodies():
 		activated = false
 		get_node(linked_door).toggle_open(activated)
 		$AnimatedSprite2D.play_backwards("press")
+		Global.play_sound(preload("res://audio/GMTK2024_ButtonPressUp_01.ogg"),global_position)
+		Global.play_sound(preload("res://audio/GMTK2024_DoorClose_01.ogg"),global_position)

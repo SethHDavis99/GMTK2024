@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://1de6cxcac8fc"
+uid="uid://dy3tqcwbogyu1"
 path="res://.godot/imported/GMTK2024_PullyLoop_01.ogg-fdcd832df45e2dfad477347038d42a0e.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/GMTK2024_PullyLoop_01.ogg-fdcd832df45e2dfad47
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
