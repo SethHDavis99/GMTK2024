@@ -5,10 +5,16 @@ extends Node2D
 @export var is_horizontal := true
 var position_timer = 0
 var travel_speed = 0
+var lock_position = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	travel_speed = travel_length / travel_time
+	
+	if is_horizontal:
+		lock_position = global_position.y
+	else:
+		lock_position = global_position.x
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,5 +26,7 @@ func _process(delta):
 	
 	if is_horizontal:
 		$RigidBody2D.set_axis_velocity(Vector2(travel_speed, 0))
+		#global_position.y = lock_position
 	else:
 		$RigidBody2D.set_axis_velocity(Vector2(0, travel_speed))
+		#global_position.x = lock_position
