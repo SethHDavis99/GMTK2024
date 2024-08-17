@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_5weqe"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_g4tmb"]
-[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/door.tscn" id="3_14wp1"]
+[ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="3_14wp1"]
 [ext_resource type="PackedScene" uid="uid://qxeggp7467i" path="res://objects/movingplatform.tscn" id="4_w3naw"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
@@ -13,7 +13,6 @@ tile_set = ExtResource("1_5weqe")
 position = Vector2(60, 480)
 collision_layer = 1
 collision_mask = 1
-size = 3.0
 
 [node name="Door" parent="." instance=ExtResource("3_14wp1")]
 position = Vector2(1064, 352)

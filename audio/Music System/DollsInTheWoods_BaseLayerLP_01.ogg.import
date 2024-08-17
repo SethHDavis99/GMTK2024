@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2ibp7on55bfn"
+path="res://.godot/imported/DollsInTheWoods_BaseLayerLP_01.ogg-38517dedd0d708486a438964d7155959.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Music System/DollsInTheWoods_BaseLayerLP_01.ogg"
+dest_files=["res://.godot/imported/DollsInTheWoods_BaseLayerLP_01.ogg-38517dedd0d708486a438964d7155959.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
