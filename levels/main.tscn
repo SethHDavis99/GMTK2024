@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://comul7eu3xh4b"]
+[gd_scene load_steps=8 format=4 uid="uid://comul7eu3xh4b"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_uh1xk"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_ns3bq"]
 [ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_ij6r3"]
+[ext_resource type="PackedScene" uid="uid://crklvagtxlsbi" path="res://levels/Level1.tscn" id="4_ir5yh"]
 [ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="5_to6vj"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="6_gxqov"]
 [ext_resource type="PackedScene" uid="uid://bnqmv4kmkmpvn" path="res://objects/door.tscn" id="6_lri7l"]
@@ -16,19 +17,14 @@ position = Vector2(274, 474)
 
 [node name="ExitDoor" parent="." instance=ExtResource("6_gxqov")]
 position = Vector2(1064, 608)
+next_level = ExtResource("4_ir5yh")
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_ij6r3")]
-offset_left = 650.0
-offset_top = 48.0
-offset_right = 670.0
-offset_bottom = 68.0
+position = Vector2(690, 94)
 linked_pully = NodePath("../PullyPlatform2")
 
 [node name="PullyPlatform2" parent="." instance=ExtResource("4_ij6r3")]
-offset_left = 407.0
-offset_top = 187.0
-offset_right = 427.0
-offset_bottom = 207.0
+position = Vector2(404, 231)
 linked_pully = NodePath("../PullyPlatform")
 
 [node name="Button" parent="." instance=ExtResource("5_to6vj")]
