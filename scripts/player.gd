@@ -4,8 +4,8 @@ class_name Player
 @export var size := 4.0
 
 const SPEED = 300.0
-const JUMP_VELOCITY = 200.0
-const JUMP_MOD = 75.0
+const JUMP_VELOCITY = 300.0
+const JUMP_MOD = 90.0
 const MAX_SIZE = 4.0
 
 var can_control = true
