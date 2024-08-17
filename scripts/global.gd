@@ -1,6 +1,7 @@
 extends Node
 
 var hovered_player = null
+var selected_player = null
 var players = {}
 
 func play_sound(sound : AudioStream, position : Vector2, pitch := 1.0):
