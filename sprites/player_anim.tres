@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 [gd_resource type="SpriteFrames" load_steps=41 format=3 uid="uid://bstl8yolb5enr"]
-=======
-[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://bstl8yolb5enr"]
->>>>>>> 5a41bc009277384133b2af4e788105bb7105a556
 
+[ext_resource type="Texture2D" uid="uid://bdjwr2nuywpq7" path="res://sprites/player.png" id="1_c1icr"]
 [ext_resource type="Texture2D" uid="uid://qyg70w8c7j7c" path="res://animation/Doll_Anim.png" id="1_j2gnj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sx2yy"]
@@ -274,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hudur")
 }],
-"loop": false,
+"loop": true,
 "name": &"R_OpenUp",
 "speed": 12.0
 }, {
@@ -303,4 +300,12 @@ animations = [{
 "loop": true,
 "name": &"R_Walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c1icr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
