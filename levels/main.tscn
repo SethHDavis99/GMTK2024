@@ -16,20 +16,11 @@ position = Vector2(274, 474)
 
 [node name="ExitDoor" parent="." instance=ExtResource("6_gxqov")]
 position = Vector2(1064, 608)
-next_level = null
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_ij6r3")]
-offset_left = 650.0
-offset_top = 48.0
-offset_right = 670.0
-offset_bottom = 68.0
 linked_pully = NodePath("../PullyPlatform2")
 
 [node name="PullyPlatform2" parent="." instance=ExtResource("4_ij6r3")]
-offset_left = 407.0
-offset_top = 187.0
-offset_right = 427.0
-offset_bottom = 207.0
 linked_pully = NodePath("../PullyPlatform")
 
 [node name="Button" parent="." instance=ExtResource("5_to6vj")]
