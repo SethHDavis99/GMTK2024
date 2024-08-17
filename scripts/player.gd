@@ -28,10 +28,12 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			$AnimatedSprite2D.flip_h = direction < 0
-			if is_on_floor():
+			if is_on_floor() and velocity.y == 0:
 				$AnimatedSprite2D.play("R_Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if is_on_floor() and velocity.y == 0:
+				$AnimatedSprite2D.play("IDLE")
 	else:
 		velocity.x = 0
 	
@@ -54,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		recent_pully.colliding_players.append(self)
 
 func jump(overide_speed = -1):
-	$AnimatedSprite2D.play("Jump")
+	$AnimatedSprite2D.play("JumpUp")
 	var jump_speed = JUMP_VELOCITY
 	if overide_speed > 0:
 		jump_speed = overide_speed
@@ -79,7 +81,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Global.selected_player = nearby_parent
 			nearby_parent.get_node("AnimatedSprite2D").play("R_OpenUp")
 			get_viewport().set_input_as_handled()
-			Global.play_sound(preload("res://audio/GMTK2024_DollPopOut_01.ogg"),global_position, MAX_SIZE / size)
+			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, MAX_SIZE / size)
 			can_control = false
 			var tween = get_tree().create_tween()
 			tween.tween_property(self,"global_position",nearby_parent.global_position - Vector2(0,50 * nearby_parent.scale.x),0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -94,7 +96,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_parent().add_child(inst)
 			inst.jump(200)
 			can_control = false
-			Global.play_sound(preload("res://audio/GMTK2024_DollPopOut_01.ogg"),global_position, MAX_SIZE / size)
+			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position, MAX_SIZE / size)
 			$AnimatedSprite2D.play("R_OpenUp")
 	
 	if event.is_action_pressed("jump") and is_on_floor():
