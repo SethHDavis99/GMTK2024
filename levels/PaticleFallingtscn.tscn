@@ -13,7 +13,7 @@ max_value = 2.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -2), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_u6xbq"]
+[sub_resource type="CurveTexture" id="CurveTexture_scqjo"]
 curve = SubResource("Curve_lirww")
 
 [sub_resource type="Curve" id="Curve_y8pxi"]
@@ -21,7 +21,7 @@ max_value = 2.0
 _data = [Vector2(0, 1.10798), 0.0, 0.0, 0, 0, Vector2(0.578125, 0.603191), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_3jkae"]
+[sub_resource type="CurveTexture" id="CurveTexture_2jhjl"]
 curve = SubResource("Curve_y8pxi")
 
 [sub_resource type="Curve" id="Curve_8akek"]
@@ -30,7 +30,7 @@ max_value = 200.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 99.0426), 0.0, 0.0, 0, 0, Vector2(1, 43.7234), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_cfnp1"]
+[sub_resource type="CurveTexture" id="CurveTexture_2mppq"]
 curve = SubResource("Curve_8akek")
 
 [sub_resource type="Curve" id="Curve_4gdb1"]
@@ -38,7 +38,7 @@ max_value = 440.22
 _data = [Vector2(0, 28.3875), 0.0, 0.0, 0, 0, Vector2(1e-05, 440.22), 0.0, 0.0, 0, 0, Vector2(0.712054, 213.436), 0.0, 0.0, 0, 0, Vector2(1, 111.617), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_6qyx6"]
+[sub_resource type="CurveTexture" id="CurveTexture_t41el"]
 curve = SubResource("Curve_4gdb1")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7l7l"]
@@ -48,13 +48,13 @@ emission_sphere_radius = 1.0
 direction = Vector3(0.1, 0, 0)
 spread = 14.268
 flatness = 0.845
-orbit_velocity_curve = SubResource("CurveTexture_u6xbq")
-velocity_limit_curve = SubResource("CurveTexture_6qyx6")
+orbit_velocity_curve = SubResource("CurveTexture_scqjo")
+velocity_limit_curve = SubResource("CurveTexture_t41el")
 gravity = Vector3(0, 2.5, 0)
 tangential_accel_min = -4.37
 tangential_accel_max = 4.76
-tangential_accel_curve = SubResource("CurveTexture_cfnp1")
-scale_curve = SubResource("CurveTexture_3jkae")
+tangential_accel_curve = SubResource("CurveTexture_2mppq")
+scale_curve = SubResource("CurveTexture_2jhjl")
 anim_speed_max = 3.33
 turbulence_noise_strength = 9.16
 turbulence_noise_scale = 3.47
