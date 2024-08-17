@@ -4,7 +4,8 @@ class_name Player
 @export var size := 4.0
 
 const SPEED = 300.0
-const JUMP_VELOCITY = 400.0
+const JUMP_VELOCITY = 200.0
+const JUMP_MOD = 75.0
 const MAX_SIZE = 4.0
 
 var can_control = true
@@ -25,10 +26,14 @@ func _physics_process(delta: float) -> void:
 		var direction := Input.get_axis("move_left", "move_right")
 		if direction:
 			velocity.x = direction * SPEED
+			$AnimatedSprite2D.flip_h = direction > 0
+			$AnimatedSprite2D.play("R_Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			$AnimatedSprite2D.stop()
 	else:
 		velocity.x = 0
+		$AnimatedSprite2D.stop()
 	
 	move_and_slide()
 	
@@ -49,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		recent_pully.colliding_players.append(self)
 
 func jump(overide_speed = -1):
-	var jump_speed = JUMP_VELOCITY
+	var jump_speed = JUMP_VELOCITY + (JUMP_MOD * (MAX_SIZE - size))
 	if overide_speed > 0:
 		jump_speed = overide_speed
 	velocity.y = -jump_speed
@@ -75,7 +80,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			inst.size = size-1
 			inst.global_position = global_position
 			get_parent().add_child(inst)
-			inst.jump(400)
+			inst.jump()
 			can_control = false
 			Global.play_sound(preload("res://audio/GMTK2024_DollPopOut_01.ogg"),global_position, MAX_SIZE / size)
 	
