@@ -74,8 +74,10 @@ script = ExtResource("1_ywdgb")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="FinishLevel"]
 material = SubResource("CanvasItemMaterial_krqt2")
 position = Vector2(100, 0)
+emitting = false
 amount = 25
 process_material = SubResource("ParticleProcessMaterial_ytaoo")
+one_shot = true
 explosiveness = 0.59
 randomness = 0.75
 
