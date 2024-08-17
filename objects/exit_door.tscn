@@ -11,10 +11,10 @@ size = Vector2(96, 102)
 
 [node name="ExitDoor" type="Area2D"]
 process_mode = 3
+z_index = -99
 script = ExtResource("1_ywdgb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -999
 position = Vector2(-80, -136)
 texture = ExtResource("2_o3exk")
 hframes = 16

@@ -13,7 +13,7 @@ func play_sound(sound : AudioStream, position : Vector2, pitch_range := [1.0,1.0
 	return inst
 
 func set_hovered_player(player):
-	if hovered_player:
+	if is_instance_valid(hovered_player):
 		hovered_player.modulate = Color.WHITE
 	hovered_player = player
 	if player:

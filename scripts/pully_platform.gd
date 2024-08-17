@@ -40,8 +40,12 @@ func _physics_process(delta: float) -> void:
 		pully_sound.queue_free()
 		pully_sound = null
 
+func _exit_tree() -> void:
+	if pully_sound:
+		pully_sound.queue_free()
+
 func get_total_weight():
 	var total_weight = 0
 	for player in colliding_players:
 		total_weight += player.get_weight()
-	return total_weight
+	return total_weight * 3
