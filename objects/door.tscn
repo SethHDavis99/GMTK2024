@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cqk2qe0l1lpvq" path="res://sprites/door_anim.tres" id="2_akn58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwkf2"]
-size = Vector2(22, 100)
+size = Vector2(92, 100)
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_ywdgb")
