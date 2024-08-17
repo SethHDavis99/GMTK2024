@@ -4,22 +4,23 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aq5fj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm2x2"]
-size = Vector2(32, 64)
+size = Vector2(92, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7241j"]
-size = Vector2(28, 64.375)
+size = Vector2(81, 183.375)
 
 [node name="Player" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_aq5fj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -160)
 sprite_frames = ExtResource("1_01bsf")
 animation = &"R_Walk"
+frame_progress = 0.0188157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -89)
 shape = SubResource("RectangleShape2D_sm2x2")
 one_way_collision = true
 
@@ -27,7 +28,7 @@ one_way_collision = true
 position = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -3.8125)
+position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_7241j")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
