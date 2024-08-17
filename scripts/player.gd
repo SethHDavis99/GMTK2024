@@ -69,6 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			nearby_parent.can_control = true
 			queue_free()
 			get_viewport().set_input_as_handled()
+			Global.play_sound(preload("res://audio/GMTK2024_DollPopOut_01.ogg"),global_position, MAX_SIZE / size)
 		elif size > 1 and !Global.players.has(size-1):
 			var inst = load("res://objects/player.tscn").instantiate()
 			inst.size = size-1
@@ -76,6 +77,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_parent().add_child(inst)
 			inst.jump(400)
 			can_control = false
+			Global.play_sound(preload("res://audio/GMTK2024_DollPopOut_01.ogg"),global_position, MAX_SIZE / size)
 	
 	if event.is_action_pressed("jump") and is_on_floor():
 		jump()
