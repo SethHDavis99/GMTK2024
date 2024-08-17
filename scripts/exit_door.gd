@@ -11,9 +11,12 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and body.size == required_size:
-		Global.play_sound(preload("res://audio/GMTK2024_DollGoalReach_02.ogg"),global_position)
-		$Timer.start()
-		get_tree().paused = true
+		if next_level:
+			Global.play_sound(preload("res://audio/GMTK2024_DollGoalReach_02.ogg"),global_position)
+			$Timer.start()
+			get_tree().paused = true
+		else:
+			printerr("ERROR: No next level provided!")
 
 func _on_timer_timeout() -> void:
 	get_tree().call_deferred("change_scene_to_packed",next_level)
