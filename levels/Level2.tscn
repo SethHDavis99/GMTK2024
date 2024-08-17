@@ -16,6 +16,7 @@ size = 2.0
 
 [node name="Door" parent="." instance=ExtResource("3_7hqo8")]
 position = Vector2(1064, 608)
+required_size = 2
 next_level = "res://main.tscn"
 
 [node name="Button" parent="." instance=ExtResource("4_ftj3q")]
@@ -24,4 +25,7 @@ linked_door = NodePath("../Door2")
 
 [node name="Door2" parent="." instance=ExtResource("5_kx024")]
 position = Vector2(500, 416)
-scale = Vector2(1, 1.2)
+
+[node name="Button2" parent="." instance=ExtResource("4_ftj3q")]
+position = Vector2(933, 611)
+linked_door = NodePath("../Door2")
