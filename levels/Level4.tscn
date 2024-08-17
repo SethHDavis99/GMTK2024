@@ -16,7 +16,6 @@ position = Vector2(50.1051, 605)
 
 [node name="ExitDoor" parent="." instance=ExtResource("7_rrt5j")]
 position = Vector2(972.039, 63)
-next_level = "res://levels/Level5.tscn"
 
 [node name="Button" parent="." instance=ExtResource("6_ewsp5")]
 position = Vector2(484, 605)

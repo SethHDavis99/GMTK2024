@@ -14,7 +14,6 @@ position = Vector2(72, 599)
 
 [node name="ExitDoor" parent="." instance=ExtResource("3_rh7ei")]
 position = Vector2(1123, 612)
-next_level = "res://levels/Level4.tscn"
 
 [node name="PullyPlatform" parent="." instance=ExtResource("4_bim47")]
 offset_left = 246.0
