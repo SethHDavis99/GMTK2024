@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/WoodenDolls.ogg-377c1adafc393d9acab5bd8b9a41c
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
