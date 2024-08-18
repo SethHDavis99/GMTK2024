@@ -46,6 +46,12 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			$AnimatedSprite2D.flip_h = direction < 0
+			if direction < 0:
+				$JumpOut/GPUParticles2D.process_material.gravity.x = -100
+				$JumpOut/GPUParticles2D.position.x = -19
+			elif direction > 0:
+				$JumpOut/GPUParticles2D.process_material.gravity.x = 100
+				$JumpOut/GPUParticles2D.position.x = 19
 			if is_on_floor() and velocity.y == 0:
 				$AnimatedSprite2D.play("R_Walk")
 		else:
