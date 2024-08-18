@@ -22,6 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 			tween.tween_property($CanvasLayer/ColorRect,"modulate",Color.WHITE,4)
 			tween.finished.connect(on_tween_finished)
 			get_tree().paused = true
+			$FinishLevel/GPUParticles2D.emitting = true
 		else:
 			printerr("ERROR: No next level provided!")
 

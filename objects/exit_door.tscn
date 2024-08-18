@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ywdgb"]
 [ext_resource type="Texture2D" uid="uid://5dly13jp542v" path="res://Art/Assets.png" id="2_o3exk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtghr"]
+size = Vector2(34, 184)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_krqt2"]
 blend_mode = 1
 particles_animation = true
@@ -58,9 +61,6 @@ color = Color(0.847355, 0.0750317, 1, 1)
 color_ramp = SubResource("GradientTexture1D_mcktq")
 emission_curve = SubResource("CurveTexture_krm6t")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtghr"]
-size = Vector2(34, 184)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc7ax"]
 size = Vector2(96, 102)
 
@@ -68,19 +68,6 @@ size = Vector2(96, 102)
 process_mode = 3
 z_index = -99
 script = ExtResource("1_ywdgb")
-
-[node name="FinishLevel" type="Node2D" parent="."]
-visible = false
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="FinishLevel"]
-material = SubResource("CanvasItemMaterial_krqt2")
-position = Vector2(100, 0)
-emitting = false
-amount = 25
-process_material = SubResource("ParticleProcessMaterial_ytaoo")
-one_shot = true
-explosiveness = 0.59
-randomness = 0.75
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-80, -136)
@@ -102,6 +89,17 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(69, -92)
 shape = SubResource("RectangleShape2D_mtghr")
+
+[node name="FinishLevel" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FinishLevel"]
+material = SubResource("CanvasItemMaterial_krqt2")
+emitting = false
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_ytaoo")
+one_shot = true
+explosiveness = 0.59
+randomness = 0.75
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
