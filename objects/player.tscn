@@ -29,9 +29,8 @@ scale_min = 3.0
 scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_1kqc2")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iigf8"]
-radius = 32.0
-height = 174.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnj3x"]
+size = Vector2(63, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7241j"]
 size = Vector2(81, 183.375)
@@ -64,8 +63,8 @@ sprite_frames = ExtResource("1_01bsf")
 animation = &"IDLE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -89)
-shape = SubResource("CapsuleShape2D_iigf8")
+position = Vector2(-2.5, -90)
+shape = SubResource("RectangleShape2D_tnj3x")
 one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]

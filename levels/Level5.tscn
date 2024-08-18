@@ -46,3 +46,13 @@ linked_door = NodePath("../Door2")
 [node name="Door2" parent="." instance=ExtResource("7_1y7u4")]
 position = Vector2(704, 217)
 scale = Vector2(1.45049, 1.53744)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 10.0
+offset_right = 305.0
+offset_bottom = 33.0
+rotation = 0.00960653
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "TIP: Dolls can pop out even mid-air!"

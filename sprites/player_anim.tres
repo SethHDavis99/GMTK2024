@@ -1,6 +1,5 @@
-[gd_resource type="SpriteFrames" load_steps=36 format=3 uid="uid://bstl8yolb5enr"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://bstl8yolb5enr"]
 
-[ext_resource type="Texture2D" uid="uid://bdjwr2nuywpq7" path="res://sprites/player.png" id="1_c1icr"]
 [ext_resource type="Texture2D" uid="uid://qyg70w8c7j7c" path="res://animation/Doll_Anim.png" id="1_j2gnj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je710"]
@@ -265,12 +264,4 @@ animations = [{
 "loop": true,
 "name": &"R_Walk",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_c1icr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
 }]
