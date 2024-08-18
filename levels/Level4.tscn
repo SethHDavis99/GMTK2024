@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b58sska70wng7"]
+[gd_scene load_steps=9 format=4 uid="uid://b58sska70wng7"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_muh7t"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_xpms5"]
@@ -6,11 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="4_hdpd1"]
 [ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="5_sy4c4"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="6_b3j0i"]
-[ext_resource type="PackedScene" uid="uid://nl51wfotpw3x" path="res://levels/end_screen.tscn" id="7_dx45l"]
+[ext_resource type="PackedScene" uid="uid://dxvc2hps4ft5d" path="res://levels/Level5.tscn" id="8_j1gwv"]
+[ext_resource type="Texture2D" uid="uid://d36junuxj4sur" path="res://Art/BG.0001.png" id="8_y0ee3"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
 tile_map_data = PackedByteArray("AAD//wAAAgAIAAQAAAD//wEAAgADAAQAAAD//wIAAgADAAQAAAD//wMAAgADAAQAAAD//wQAAgADAAQAAAD//wUAAgADAAQAAAD//wYAAgADAAQAAAD//wcAAgADAAQAAAD//wgAAgADAAQAAAD//wkAAgADAAQAAAASAAAAAgAJAAQAAAASAAEAAgAHAAUAAAASAAIAAgAHAAUAAAASAAMAAgAHAAUAAAASAAQAAgAHAAUAAAASAAUAAgAHAAUAAAASAAYAAgAHAAUAAAASAAcAAgAHAAUAAAASAAgAAgAHAAUAAAASAAkAAgADAAQAAAAAAAkAAgAIAAMAAAAAAAoAAgAIAAQAAAABAAkAAgAJAAMAAAABAAoAAgAJAAQAAAACAAkAAgAKAAMAAAACAAoAAgAKAAQAAAADAAkAAgAGAAMAAAADAAoAAgAGAAQAAAAEAAkAAgAHAAMAAAAEAAoAAgAHAAQAAAAFAAkAAgAIAAMAAAAFAAoAAgAIAAQAAAAGAAkAAgAJAAMAAAAGAAoAAgAJAAQAAAAHAAkAAgAKAAMAAAAHAAoAAgAKAAQAAAAIAAkAAgADAAMAAAAIAAoAAgADAAQAAAAJAAkAAgAEAAMAAAAJAAoAAgAEAAQAAAAKAAkAAgAFAAMAAAAKAAoAAgAFAAQAAAALAAkAAgAGAAMAAAALAAoAAgAGAAQAAAAMAAkAAgAHAAMAAAAMAAoAAgAHAAQAAAANAAkAAgAIAAMAAAANAAoAAgAIAAQAAAAOAAkAAgAJAAMAAAAOAAoAAgAJAAQAAAAPAAkAAgAKAAMAAAAPAAoAAgAKAAQAAAAQAAkAAgAHAAYAAAAQAAoAAgAHAAcAAAARAAkAAgAIAAYAAAARAAoAAgAIAAcAAAASAAoAAgADAAUAAAD//woAAgADAAUAAAAEAAUAAgAEAAUAAAAEAAYAAgAEAAYAAAAFAAUAAgAFAAUAAAAFAAYAAgAFAAYAAAAEAAQAAgAEAAMAAAAFAAQAAgAFAAMAAAAPAAIAAgAFAAMAAAAQAAIAAgAGAAMAAAARAAIAAgAHAAMAAAANAAIAAgAHAAMAAAAOAAIAAgAFAAMAAAAQAAYAAgAHAAMAAAAQAAcAAgAHAAQAAAAQAAgAAgAHAAUAAAARAAYAAgAIAAMAAAARAAcAAgAIAAQAAAARAAgAAgAIAAUAAAAJAAAAAgAGAAQAAAAKAAAAAgAHAAQAAAALAAAAAgAIAAQAAAAMAAAAAgAJAAQAAAANAAAAAgAEAAQAAAAOAAAAAgAFAAQAAAAPAAAAAgAGAAQAAAACAAAAAgAFAAQAAAADAAAAAgAGAAQAAAAEAAAAAgAHAAQAAAAFAAAAAgAIAAQAAAAGAAAAAgAJAAQAAAAHAAAAAgAGAAQAAAAIAAAAAgAHAAQAAAD7/wAAAgAEAAQAAAD8/wAAAgAFAAQAAAD9/wAAAgAGAAQAAAD+/wAAAgAHAAQAAAAAAAAAAgAJAAQAAAABAAAAAgAEAAQAAAAQAAAAAgAHAAQAAAARAAAAAgAIAAQAAAAHAAIAAgAGAAYAAAAIAAIAAgAHAAYAAAAMAAIAAgAHAAMAAAAMAAMAAgAHAAQAAAAMAAQAAgAHAAUAAAAMAAUAAgAHAAYAAAAMAAYAAgAHAAcAAAAHAAEAAgAGAAUAAAAIAAEAAgAHAAUAAAA=")
 tile_set = ExtResource("1_muh7t")
+
+[node name="Bg_0001" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+show_behind_parent = true
+z_index = -4096
+position = Vector2(581.556, 323.5)
+scale = Vector2(1.23519, 1.23519)
+texture = ExtResource("8_y0ee3")
 
 [node name="Player" parent="." instance=ExtResource("2_xpms5")]
 position = Vector2(68, 599)
@@ -33,7 +42,7 @@ linked_pully = NodePath("../PullyPlatform")
 
 [node name="ExitDoor" parent="." instance=ExtResource("6_b3j0i")]
 position = Vector2(1088, 143)
-next_level = ExtResource("7_dx45l")
+next_level = ExtResource("8_j1gwv")
 
 [node name="Button2" parent="." instance=ExtResource("4_hdpd1")]
 position = Vector2(1086, 410)
