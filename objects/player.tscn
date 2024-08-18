@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://vrgxl7185qiy"]
+[gd_scene load_steps=30 format=3 uid="uid://vrgxl7185qiy"]
 
 [ext_resource type="SpriteFrames" uid="uid://bstl8yolb5enr" path="res://sprites/player_anim.tres" id="1_01bsf"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aq5fj"]
@@ -53,6 +53,15 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_5bfog"]
 curve = SubResource("Curve_8y7pg")
 
+[sub_resource type="Curve" id="Curve_bsk0f"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(0.510544, -0.382797), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lawex"]
+curve = SubResource("Curve_bsk0f")
+
 [sub_resource type="Curve" id="Curve_dxk75"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.758047, 0.975118), 0.0, 0.0, 0, 0, Vector2(1, 0.346276), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -73,13 +82,16 @@ lifetime_randomness = 0.3
 particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
 angle_curve = SubResource("CurveTexture_ts35m")
-gravity = Vector3(0, -5, 0)
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -1, 0)
 linear_accel_min = -48.38
 linear_accel_max = -2.23517e-06
+linear_accel_curve = SubResource("CurveTexture_lawex")
 radial_accel_min = -68.61
 radial_accel_max = 100.0
 tangential_accel_min = -22.94
-tangential_accel_max = 17.53
+tangential_accel_max = 2.48
 damping_max = 5.227
 scale_max = 4.54
 scale_curve = SubResource("CurveTexture_clabh")
@@ -97,8 +109,8 @@ particles_anim_loop = false
 [sub_resource type="Curve" id="Curve_aq0h8"]
 min_value = -2.0
 max_value = 2.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -2), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, -0.0303686), 0.0, 0.0, 0, 0, Vector2(1e-05, -0.0170982), 0.0, 0.0, 0, 0, Vector2(0.495006, -2), 0.0, 0.0, 0, 0, Vector2(1, 0.0227129), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_u6xbq"]
 curve = SubResource("Curve_aq0h8")
@@ -114,7 +126,7 @@ curve = SubResource("Curve_r7cks")
 [sub_resource type="Curve" id="Curve_ovw7y"]
 min_value = -200.0
 max_value = 200.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 99.0426), 0.0, 0.0, 0, 0, Vector2(1, 43.7234), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -200), 0.0, 0.0, 0, 0, Vector2(1, 43.7234), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_cfnp1"]
@@ -122,7 +134,7 @@ curve = SubResource("Curve_ovw7y")
 
 [sub_resource type="Curve" id="Curve_26ml1"]
 max_value = 440.22
-_data = [Vector2(0, 28.3875), 0.0, 0.0, 0, 0, Vector2(1e-05, 440.22), 0.0, 0.0, 0, 0, Vector2(0.712054, 213.436), 0.0, 0.0, 0, 0, Vector2(1, 111.617), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 28.3875), 0.0, 0.0, 0, 0, Vector2(1e-05, 126.219), 0.0, 0.0, 0, 0, Vector2(0.712054, 213.436), 0.0, 0.0, 0, 0, Vector2(1, 111.617), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_6qyx6"]
@@ -140,8 +152,8 @@ flatness = 0.845
 orbit_velocity_curve = SubResource("CurveTexture_u6xbq")
 velocity_limit_curve = SubResource("CurveTexture_6qyx6")
 gravity = Vector3(0, 1, 0)
-tangential_accel_min = -11.27
-tangential_accel_max = 12.07
+tangential_accel_min = -25.91
+tangential_accel_max = 32.6
 tangential_accel_curve = SubResource("CurveTexture_cfnp1")
 scale_min = 0.0
 scale_max = 10.74
@@ -177,34 +189,33 @@ one_shot = true
 speed_scale = 2.93
 explosiveness = 0.5
 
-[node name="FallingVFX" type="Node2D" parent="."]
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="FallingVFX"]
-material = SubResource("CanvasItemMaterial_ocrkn")
-position = Vector2(0, -64)
-emitting = false
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_rtlbq")
-one_shot = true
-speed_scale = 5.58
-randomness = 0.23
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="FallingVFX"]
-material = SubResource("CanvasItemMaterial_hwo6w")
-position = Vector2(0, -20)
-scale = Vector2(200, 200)
-emitting = false
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_sx5mt")
-one_shot = true
-preprocess = 0.25
-speed_scale = 5.53
-randomness = 0.23
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -160)
 sprite_frames = ExtResource("1_01bsf")
 animation = &"IDLE"
+
+[node name="FallingVFX" type="Node2D" parent="."]
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="FallingVFX"]
+visible = false
+material = SubResource("CanvasItemMaterial_ocrkn")
+position = Vector2(0, -64)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_rtlbq")
+lifetime = 0.5
+speed_scale = 1.77
+randomness = 0.28
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FallingVFX"]
+material = SubResource("CanvasItemMaterial_hwo6w")
+position = Vector2(2, -27)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_sx5mt")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -89)
