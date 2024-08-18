@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("JumpUp")
 	elif velocity.y == 0:
 		if not landed:
-			footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
+			footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8 * (MAX_SIZE / size),1.2 * (MAX_SIZE / size)])
 			$LandingParticles.restart()
 			$AnimatedSprite2D.play("IDLE")
 		coyote_finished = false
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	#walk sounds
 	if !is_instance_valid(footstep) and $AnimatedSprite2D.animation == "R_Walk" and $AnimatedSprite2D.frame == 5:
-		footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
+		footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8 * (MAX_SIZE / size),1.2 * (MAX_SIZE / size)])
 
 func jump(overide_speed = -1):
 	coyote_finished = true
