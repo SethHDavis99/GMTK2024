@@ -3,7 +3,7 @@ class_name PullyPlatform
 
 @export_node_path("PullyPlatform") var linked_pully : NodePath
 
-const SPEED = 25
+const SPEED = 50
 const WEIGHT_DIFF = 10
 
 var colliding_players : Array[Player] = []
