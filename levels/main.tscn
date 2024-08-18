@@ -3,16 +3,17 @@
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_uh1xk"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_ns3bq"]
 [ext_resource type="PackedScene" uid="uid://crklvagtxlsbi" path="res://levels/Level1.tscn" id="4_7xakv"]
-[ext_resource type="PackedScene" uid="uid://dib38fqwttxho" path="res://objects/pully_platform.tscn" id="4_ij6r3"]
+[ext_resource type="PackedScene" path="res://objects/pully_platform.tscn" id="4_ij6r3"]
 [ext_resource type="PackedScene" uid="uid://ctqto3r7w4jwo" path="res://objects/button.tscn" id="5_to6vj"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="6_gxqov"]
 [ext_resource type="PackedScene" uid="uid://bnqmv4kmkmpvn" path="res://objects/door.tscn" id="6_lri7l"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAAAAkAAgADAAMAAAABAAkAAgADAAMAAAACAAkAAgADAAMAAAADAAkAAgADAAMAAAAEAAkAAgADAAMAAAAFAAkAAgADAAMAAAAGAAkAAgADAAMAAAAHAAkAAgADAAMAAAAIAAkAAgAGAAQAAAAJAAkAAgAHAAQAAAAKAAkAAgADAAMAAAALAAkAAgADAAMAAAAMAAkAAgADAAMAAAANAAkAAgADAAMAAAAOAAkAAgADAAMAAAAPAAkAAgADAAMAAAAQAAkAAgADAAMAAAARAAkAAgADAAMAAAAIAAgAAgAGAAMAAAAJAAgAAgAHAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAARABIAAAAAAAAAAAAQABIAAAAAAAAAAAA=")
 tile_set = ExtResource("1_uh1xk")
 
 [node name="Player" parent="." instance=ExtResource("2_ns3bq")]
+z_index = -9
 position = Vector2(185, 585)
 
 [node name="ExitDoor" parent="." instance=ExtResource("6_gxqov")]
@@ -29,7 +30,7 @@ position = Vector2(371, 234)
 linked_pully = NodePath("../PullyPlatform")
 
 [node name="Button" parent="." instance=ExtResource("5_to6vj")]
-position = Vector2(694, 599)
+position = Vector2(688, 608)
 linked_door = NodePath("../Door2")
 
 [node name="Door2" parent="." instance=ExtResource("6_lri7l")]
