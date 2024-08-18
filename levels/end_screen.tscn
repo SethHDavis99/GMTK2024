@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://nl51wfotpw3x"]
+[gd_scene load_steps=4 format=3 uid="uid://nl51wfotpw3x"]
 
 [ext_resource type="AudioStream" uid="uid://b5n5o0y1nx5te" path="res://audio/KnockOnWoodLP.ogg" id="1_27bhq"]
 [ext_resource type="Script" path="res://levels/end_screen.gd" id="1_v0nx4"]
+[ext_resource type="Texture2D" uid="uid://d36junuxj4sur" path="res://Art/BG.0001.png" id="2_d7e2f"]
 
 [node name="EndScreen" type="CanvasLayer"]
 script = ExtResource("1_v0nx4")
+
+[node name="Bg_0001" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+show_behind_parent = true
+z_index = -4096
+position = Vector2(581.556, 323.5)
+scale = Vector2(1.23519, 1.23519)
+texture = ExtResource("2_d7e2f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
