@@ -124,6 +124,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			can_control = false
 			Global.play_sound(preload("res://audio/GMTK2024_DollOpen_01.ogg"),global_position,[MAX_SIZE / size,MAX_SIZE / size])
 			$AnimatedSprite2D.play("R_OpenUp")
+			$JumpOut/GPUParticles2D.emitting = true
 	
 	if event.is_action_pressed("jump") and can_jump():
 		Global.play_sound(preload("res://audio/GMTK2024_Jump_01.ogg"),global_position)

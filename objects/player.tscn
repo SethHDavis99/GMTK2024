@@ -1,7 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://vrgxl7185qiy"]
+[gd_scene load_steps=28 format=3 uid="uid://vrgxl7185qiy"]
 
 [ext_resource type="SpriteFrames" uid="uid://bstl8yolb5enr" path="res://sprites/player_anim.tres" id="1_01bsf"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aq5fj"]
+
+[sub_resource type="Gradient" id="Gradient_ywjty"]
+offsets = PackedFloat32Array(0.00232288, 0.450639, 0.825784, 1)
+colors = PackedColorArray(0.219501, 0.219501, 0.219501, 1, 0, 0, 0, 1, 0.529443, 0.340186, 0.233042, 1, 0.211841, 0.176197, 0.147249, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1kqc2"]
+gradient = SubResource("Gradient_ywjty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_68c1e"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.8
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 204.64
+orbit_velocity_min = -0.305
+orbit_velocity_max = 1.153
+gravity = Vector3(100, -100, 0)
+radial_accel_min = -52.66
+radial_accel_max = 53.71
+tangential_accel_min = -44.57
+tangential_accel_max = 30.09
+damping_max = 24.242
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_1kqc2")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ocrkn"]
 blend_mode = 1
@@ -140,6 +166,17 @@ collision_mask = 3
 input_pickable = true
 script = ExtResource("1_aq5fj")
 
+[node name="JumpOut" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="JumpOut"]
+position = Vector2(19, -54)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_68c1e")
+one_shot = true
+speed_scale = 2.93
+explosiveness = 0.5
+
 [node name="FallingVFX" type="Node2D" parent="."]
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="FallingVFX"]
@@ -148,9 +185,8 @@ position = Vector2(0, -64)
 emitting = false
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_rtlbq")
-lifetime = 1.5
 one_shot = true
-speed_scale = 8.83
+speed_scale = 5.58
 randomness = 0.23
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="FallingVFX"]
@@ -160,10 +196,9 @@ scale = Vector2(200, 200)
 emitting = false
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_sx5mt")
-lifetime = 1.5
 one_shot = true
 preprocess = 0.25
-speed_scale = 8.83
+speed_scale = 5.53
 randomness = 0.23
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
