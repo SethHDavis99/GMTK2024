@@ -90,10 +90,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("click") and Global.hovered_player and !Global.hovered_player.playing_popin:
-		Global.selected_player = Global.hovered_player
-		can_control = Global.hovered_player == self
-		if Global.selected_player:
-			Global.play_sound(preload("res://audio/GMTK2024_UI_ButtonConfirm_01.ogg"),global_position)
+		select_player(Global.hovered_player)
+	
+	if event.is_action_pressed("1") and Global.players.has(1.0):
+		select_player(Global.players[1.0])
+	if event.is_action_pressed("2") and Global.players.has(2.0):
+		select_player(Global.players[2.0])
+	if event.is_action_pressed("3") and Global.players.has(3.0):
+		select_player(Global.players[3.0])
 	
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
@@ -183,3 +187,9 @@ func can_jump():
 
 func _on_coyote_time_timeout() -> void:
 	coyote_finished = true
+
+func select_player(player):
+	Global.selected_player = player
+	can_control = player == self
+	if can_control:
+		Global.play_sound(preload("res://audio/GMTK2024_UI_ButtonConfirm_01.ogg"),global_position)
