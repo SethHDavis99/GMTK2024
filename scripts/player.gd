@@ -96,6 +96,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("click") and Global.hovered_player and !Global.hovered_player.playing_popin:
+		if velocity.y == 0:
+			$AnimatedSprite2D.play("IDLE")
 		select_player(Global.hovered_player)
 	
 	if event.is_action_pressed("1") and Global.players.has(1.0):
