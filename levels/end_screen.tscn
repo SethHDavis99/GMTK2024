@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://nl51wfotpw3x"]
+[gd_scene load_steps=3 format=3 uid="uid://nl51wfotpw3x"]
+
+[ext_resource type="AudioStream" uid="uid://b5n5o0y1nx5te" path="res://audio/KnockOnWoodLP.ogg" id="1_27bhq"]
+[ext_resource type="Script" path="res://levels/end_screen.gd" id="1_v0nx4"]
 
 [node name="EndScreen" type="CanvasLayer"]
+script = ExtResource("1_v0nx4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -61,3 +65,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Chandrahas Tanguturi"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_27bhq")
+autoplay = true

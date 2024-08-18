@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://crklvagtxlsbi"]
+[gd_scene load_steps=6 format=4 uid="uid://crklvagtxlsbi"]
 
 [ext_resource type="TileSet" uid="uid://cu5qqt4hd8hrp" path="res://sprites/tileset.tres" id="1_2xfvg"]
 [ext_resource type="PackedScene" uid="uid://vrgxl7185qiy" path="res://objects/player.tscn" id="2_m52yn"]
 [ext_resource type="PackedScene" uid="uid://bln200fogmp7n" path="res://objects/exit_door.tscn" id="3_1clob"]
 [ext_resource type="PackedScene" uid="uid://1ujkod2vuoem" path="res://levels/Level2.tscn" id="4_v1ei2"]
+[ext_resource type="Texture2D" uid="uid://d36junuxj4sur" path="res://Art/BG.0001.png" id="5_4je7t"]
 
 [node name="TileMapLayer2" type="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAAAAkAAgADAAMAAAABAAkAAgAEAAMAAAACAAkAAgAEAAMAAAADAAkAAgAEAAQAAAAEAAkAAgAFAAQAAAAFAAkAAgAFAAMAAAAGAAkAAgAGAAMAAAAHAAkAAgAGAAMAAAAIAAkAAgADAAMAAAAJAAkAAgAHAAYAAAAKAAkAAgAIAAYAAAALAAkAAgAJAAYAAAAMAAkAAgAGAAMAAAANAAkAAgAEAAMAAAAOAAkAAgAFAAMAAAAPAAkAAgAGAAMAAAAQAAkAAgAJAAMAAAARAAkAAgAKAAMAAAD//wAAAgADAAQAAAD//wEAAgADAAQAAAD//wIAAgADAAQAAAD//wMAAgADAAQAAAD//wQAAgADAAQAAAD//wUAAgADAAQAAAD//wYAAgADAAQAAAD//wcAAgADAAQAAAD//wgAAgADAAQAAAD//wkAAgADAAQAAAASAAkAAgADAAQAAAASAAgAAgADAAQAAAASAAcAAgADAAQAAAASAAYAAgADAAQAAAASAAUAAgADAAQAAAASAAQAAgADAAQAAAASAAMAAgADAAQAAAASAAIAAgADAAQAAAASAAEAAgADAAQAAAASAAAAAgADAAQAAAD//woAAgADAAQAAAAAAAoAAgADAAQAAAABAAoAAgAEAAQAAAACAAoAAgAEAAQAAAADAAoAAgAEAAUAAAAEAAoAAgAFAAUAAAAFAAoAAgAFAAUAAAAGAAoAAgAGAAUAAAAHAAoAAgAGAAQAAAAIAAoAAgADAAQAAAAJAAoAAgAHAAcAAAAKAAoAAgAIAAcAAAALAAoAAgAJAAcAAAAMAAoAAgAKAAcAAAANAAoAAgAEAAQAAAAOAAoAAgAFAAQAAAAPAAoAAgAGAAQAAAAQAAoAAgAJAAQAAAARAAoAAgAKAAQAAAASAAoAAgADAAQAAAADAAgAAgAEAAMAAAAEAAgAAgAFAAMAAAAJAAYAAgAHAAMAAAAJAAcAAgAHAAQAAAAJAAgAAgAHAAUAAAAKAAYAAgAIAAMAAAAKAAcAAgAIAAQAAAAKAAgAAgAIAAUAAAALAAYAAgAJAAMAAAALAAcAAgAJAAQAAAALAAgAAgAJAAUAAAA=")
@@ -16,3 +17,10 @@ size = 2.0
 [node name="ExitDoor" parent="." instance=ExtResource("3_1clob")]
 position = Vector2(1064, 608)
 next_level = ExtResource("4_v1ei2")
+
+[node name="Bg_0001" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+show_behind_parent = true
+position = Vector2(581.556, 323.5)
+scale = Vector2(1.23519, 1.23519)
+texture = ExtResource("5_4je7t")
