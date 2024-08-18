@@ -19,6 +19,7 @@ func _ready() -> void:
 	Global.selected_player = self
 	Global.players[size] = self
 	scale = Vector2(size / MAX_SIZE, size / MAX_SIZE)
+	$LandingParticles.lifetime *= scale.x
 	MusicSystem.toggle_music(size,true)
 
 func _physics_process(delta: float) -> void:
@@ -33,9 +34,7 @@ func _physics_process(delta: float) -> void:
 	elif velocity.y == 0:
 		if not landed:
 			footstep = Global.play_sound(preload("res://audio/GMTK2024_FootStep_02.ogg"),global_position,[0.8,1.2])
-			#$FallingVFX/GPUParticles2D.restart()
-			$FallingVFX/GPUParticles2D.emitting = true
-			#$FallingVFX/GPUParticles2D2.emitting = true
+			$LandingParticles.restart()
 			$AnimatedSprite2D.play("IDLE")
 		coyote_finished = false
 		$CoyoteTime.stop()
